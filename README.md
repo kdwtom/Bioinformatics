@@ -3,7 +3,7 @@
 
 사용언어 : C++
 
-Code writer : kdwtom (Dongwoo Kim)
+Code writer : kdwtom 
 
 책 지은이 : 필립 콤포, 파벨 페브즈너
 옮긴이 : 한헌종, 한주헌
