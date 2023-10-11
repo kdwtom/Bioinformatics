@@ -1,27 +1,42 @@
 #include <iostream>
-#include <string.h>
 #include <math.h>
 #include <vector>
 #include <queue>
 #include <algorithm>
 #include <string>
+#include <set>
 #include <fstream>
 using namespace std;
 typedef long long ll;
 
-
-
-string inputFileName = "rosalind_ba1a";
+string inputFileName = "rosalind_ba1b";
 string outputFileName;
 ifstream dnaFile;
 ofstream ansFile;
 
 string text;
-string pattern;
+string kStr;
+
+vector<int> countArr;
+set<string> frequent;
 
 int textSize;
 int k;
-int num;
+int maxCount;
+
+int patternCount(string pattern)
+{
+    int num = 0;
+    for (int i = 0; i <= textSize - k; i++)
+    {
+        string subText = text.substr(i, k);
+        if (pattern.compare(subText) == 0)
+        {
+            num++;
+        }
+    }
+    return num;
+}
 
 void input()
 {
@@ -32,34 +47,46 @@ void input()
     dnaFile.open(inputFileName);
     if (dnaFile.is_open())
     {
-
         getline(dnaFile, text);
-        getline(dnaFile, pattern);
-        // cout << pattern;
+        getline(dnaFile, kStr);
     }
+    k = stoi(kStr);
     dnaFile.close();
-   
 }
 
+void solve()
+{
 
-void solve(){
     textSize = text.length();
-    k = pattern.length();
-    cout << k;
-    for (int i = 0; i <= textSize - k;i++){
-        string subText = text.substr(i, k);
-        // cout << subText << "\n";
-        if(pattern.compare(subText)==0){
-            num++;
+    countArr.resize(textSize + 5);
+
+    for (int i = 0; i <= textSize - k; i++)
+    {
+        string pattern = text.substr(i, k);
+        countArr[i] = patternCount(pattern);
+        maxCount = max(maxCount, countArr[i]);
+    }
+
+    for (int i = 0; i <= textSize - k; i++)
+    {
+        if (maxCount == countArr[i])
+        {
+            frequent.insert(text.substr(i, k));
         }
     }
-        return;
+    return;
 }
 
-void output(){
+void output()
+{
     ansFile.open(outputFileName);
-    if(ansFile.is_open()){
-        ansFile << num;
+    if (ansFile.is_open())
+    {
+        for (auto s : frequent)
+        {
+            ansFile << s;
+            ansFile << " ";
+        }
     }
     ansFile.close();
     return;
