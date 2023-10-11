@@ -11,3 +11,5 @@ Code writer : kdwtom (Dongwoo Kim)
 온라인 저지 사이트 링크 : https://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track
 
 무단 배포 및 복제 금지, 출처 밝히고 사용
+
+Contact me -> skyice0617@gmail.com
