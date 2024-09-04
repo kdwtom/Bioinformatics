@@ -8,6 +8,7 @@ Code and test case of 'Bioinformatics Algorithms 3rd edition' wirtten by Phillip
 Code writer : kdwtom 
 
 책 지은이 : 필립 콤포, 파벨 페브즈너
+
 옮긴이 : 한헌종, 한주헌
 
 온라인 저지 사이트 링크(url of online judge site) : https://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track
